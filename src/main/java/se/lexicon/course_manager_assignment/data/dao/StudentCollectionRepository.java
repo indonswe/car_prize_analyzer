@@ -53,6 +53,9 @@ public class StudentCollectionRepository implements StudentDao {
 
     @Override
     public boolean removeStudent(Student student) {
+        for(Student i:students){
+            if (i.getId()==student.getId()) return students.remove(i);
+        }
         return false;
     }
 

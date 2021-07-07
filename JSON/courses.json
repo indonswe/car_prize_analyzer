@@ -1,12 +1,28 @@
 [ {
-  "id" : 3,
+  "id" : 5,
   "courseName" : "ccccc",
   "startDate" : "2021-07-23",
   "weekDuration" : 1,
   "students" : [ {
-    "id" : 6,
+    "id" : 9,
+    "name" : "abc def",
+    "email" : "b@c.com",
+    "address" : "c"
+  } ]
+}, {
+  "id" : 4,
+  "courseName" : "ccccc",
+  "startDate" : "2021-07-23",
+  "weekDuration" : 1,
+  "students" : [ {
+    "id" : 8,
     "name" : "Adrian Nilsson",
     "email" : "afc2002afc@hotmail.com",
     "address" : "Villagatan\r\n20"
+  }, {
+    "id" : 9,
+    "name" : "abc def",
+    "email" : "b@c.com",
+    "address" : "c"
   } ]
 } ]

@@ -69,6 +69,7 @@ public class StudentManager implements StudentService {
 
     @Override
     public boolean deleteStudent(int id) {
-        return false;
+        Student student = studentDao.findById(id);
+        return studentDao.removeStudent(student);
     }
 }
