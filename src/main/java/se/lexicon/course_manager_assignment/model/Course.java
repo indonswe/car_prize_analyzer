@@ -14,14 +14,24 @@ public class Course {
     private String courseName;
     private LocalDate startDate;
     private int weekDuration;
-    private Collection<Student> students;
+    private Collection<Student> students = new ArrayList<>();
 
     public Course(int id) {
         this.id = id;
     }
 
     public boolean enrollStudent(Student student){
-        boolean addStudent = students.add(student);
+
+        if (student==null) return false;
+        boolean addStudent = true;
+        for(Student i:students){
+            if (student.getId()==i.getId()){
+                addStudent = false;
+            }else if(student.getEmail().equals(i.getEmail())){
+                addStudent = false;
+            }
+        }
+        if (addStudent) addStudent = students.add(student);
         return addStudent;
     }
 
