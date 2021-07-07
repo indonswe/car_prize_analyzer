@@ -5,6 +5,7 @@ package se.lexicon.course_manager_assignment.data.dao;
 import se.lexicon.course_manager_assignment.data.sequencers.StudentSequencer;
 import se.lexicon.course_manager_assignment.model.Student;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 
@@ -35,7 +36,11 @@ public class StudentCollectionRepository implements StudentDao {
 
     @Override
     public Collection<Student> findByNameContains(String name) {
-        return null;
+        Collection<Student> studentCollection = new ArrayList<>();
+        for (Student student:students){
+            if (student.getName().equals(name)) studentCollection.add(student);
+        }
+        return studentCollection;
     }
 
     @Override

@@ -56,7 +56,9 @@ public class StudentManager implements StudentService {
 
     @Override
     public List<StudentView> searchByName(String name) {
-        return null;
+        Collection<Student> students = studentDao.findByNameContains(name);
+        List<StudentView> studentViewList = converters.studentsToStudentViews(students);
+        return studentViewList;
     }
 
     @Override
