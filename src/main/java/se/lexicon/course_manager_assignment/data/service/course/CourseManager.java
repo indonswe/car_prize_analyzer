@@ -71,6 +71,9 @@ public class CourseManager implements CourseService {
 
     @Override
     public CourseView findById(int id) {
+        for(CourseView courseView:converters.coursesToCourseViews(courseDao.findAll())){
+            if (courseView.getId()==id) return  courseView;
+        }
         return null;
     }
 
