@@ -1,11 +1,6 @@
 [ {
-  "id" : 2,
+  "id" : 4,
   "name" : "Adrian Nilsson",
   "email" : "afc2002afc@hotmail.com",
   "address" : "Villagatan\r\n20"
-}, {
-  "id" : 3,
-  "name" : "abc def",
-  "email" : "b@c.com",
-  "address" : "c"
 } ]
