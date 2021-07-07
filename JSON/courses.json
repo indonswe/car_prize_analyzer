@@ -1,7 +1,12 @@
 [ {
-  "id" : 1,
+  "id" : 3,
   "courseName" : "ccccc",
-  "startDate" : "2021-07-27",
+  "startDate" : "2021-07-23",
   "weekDuration" : 1,
-  "students" : [ ]
+  "students" : [ {
+    "id" : 6,
+    "name" : "Adrian Nilsson",
+    "email" : "afc2002afc@hotmail.com",
+    "address" : "Villagatan\r\n20"
+  } ]
 } ]
