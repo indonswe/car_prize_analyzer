@@ -11,6 +11,7 @@ import se.lexicon.course_manager_assignment.dto.views.StudentView;
 import se.lexicon.course_manager_assignment.model.Student;
 
 
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -61,12 +62,15 @@ public class StudentManager implements StudentService {
     @Override
     public List<StudentView> findAll() {
         System.out.println("StudentManager - findAll");
-        List<StudentView> studentViewList = null;
+        Collection<Student> students = studentDao.findAll();
+        List<StudentView> studentViewList = converters.studentsToStudentViews(students);
+        /*System.out.println("Students " + studentDao.findAll());
         for (Student student:studentDao.findAll()){
+            System.out.println("Loop student" + student);
             StudentView studentView = new StudentView
                     (student.getId(),student.getName(),student.getEmail(),student.getAddress());
             studentViewList.add(studentView);
-        }
+        }*/
 
         return studentViewList;
     }

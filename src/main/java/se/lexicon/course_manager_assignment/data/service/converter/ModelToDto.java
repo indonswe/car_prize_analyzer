@@ -7,8 +7,10 @@ import se.lexicon.course_manager_assignment.model.Course;
 import se.lexicon.course_manager_assignment.model.Student;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @Component
 public class  ModelToDto implements Converters {
@@ -33,11 +35,14 @@ public class  ModelToDto implements Converters {
 
     @Override
     public List<StudentView> studentsToStudentViews(Collection<Student> students) {
+        //List<StudentView> studentViewList = new Set<StudentView>();
         System.out.println("StudentManager - students");
-        List<StudentView> studentViewList = null;
+        List<StudentView> studentViewList = new ArrayList<>();
         for (Student student:students){
+            System.out.println("Loop student" + student);
             StudentView studentView = new StudentView
                     (student.getId(),student.getName(),student.getEmail(),student.getAddress());
+            System.out.println("Loop studentView" + studentView);
             studentViewList.add(studentView);
         }
         
