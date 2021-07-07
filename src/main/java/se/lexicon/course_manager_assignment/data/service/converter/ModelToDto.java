@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Component
-public class ModelToDto implements Converters {
+public class  ModelToDto implements Converters {
     @Override
     public StudentView studentToStudentView(Student student) {
         return null;
