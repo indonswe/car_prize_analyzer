@@ -14,13 +14,16 @@ import java.util.List;
 public class  ModelToDto implements Converters {
     @Override
     public StudentView studentToStudentView(Student student) {
-        return null;
+        StudentView studentView = 
+                new StudentView
+                        (student.getId(),student.getName(),student.getEmail(),student.getAddress());
+        return studentView;
     }
 
     @Override
     public CourseView courseToCourseView(Course course) {
         return null;
-    }
+    } 
 
     @Override
     public List<CourseView> coursesToCourseViews(Collection<Course> courses) {
@@ -29,6 +32,13 @@ public class  ModelToDto implements Converters {
 
     @Override
     public List<StudentView> studentsToStudentViews(Collection<Student> students) {
-        return null;
+        List<StudentView> studentViewList = null;
+        for (Student student:students){
+            StudentView studentView = new StudentView
+                    (student.getId(),student.getName(),student.getEmail(),student.getAddress());
+            studentViewList.add(studentView);
+        }
+        
+        return studentViewList;
     }
 }

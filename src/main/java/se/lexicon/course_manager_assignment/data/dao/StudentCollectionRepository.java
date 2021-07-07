@@ -2,6 +2,7 @@ package se.lexicon.course_manager_assignment.data.dao;
 
 
 
+import se.lexicon.course_manager_assignment.data.sequencers.StudentSequencer;
 import se.lexicon.course_manager_assignment.model.Student;
 
 import java.util.Collection;
@@ -18,7 +19,13 @@ public class StudentCollectionRepository implements StudentDao {
 
     @Override
     public Student createStudent(String name, String email, String address) {
-        return null;
+        int nextId = StudentSequencer.nextStudentId();
+        Student newStudent = new Student(nextId);
+        newStudent.setAddress(address);
+        newStudent.setEmail(email);
+        newStudent.setName(name);
+        students.add(newStudent);
+        return newStudent;
     }
 
     @Override
@@ -38,7 +45,7 @@ public class StudentCollectionRepository implements StudentDao {
 
     @Override
     public Collection<Student> findAll() {
-        return null;
+        return students;
     }
 
     @Override
