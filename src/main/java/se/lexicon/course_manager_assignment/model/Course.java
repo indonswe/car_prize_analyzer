@@ -14,7 +14,7 @@ public class Course {
     private String courseName;
     private LocalDate startDate;
     private int weekDuration;
-    private Collection<Student> students = new ArrayList<>();
+    private List<Student> students = new ArrayList<>();
 
     public Course(int id) {
         this.id = id;
@@ -73,7 +73,7 @@ public class Course {
     }
 
     public void setStudents(Collection<Student> students) {
-        this.students = students;
+        //this.students = students;
     }
 
     @Override

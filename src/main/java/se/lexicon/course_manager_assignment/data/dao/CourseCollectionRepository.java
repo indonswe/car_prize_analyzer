@@ -2,7 +2,10 @@ package se.lexicon.course_manager_assignment.data.dao;
 
 
 
+import se.lexicon.course_manager_assignment.data.sequencers.CourseSequencer;
+import se.lexicon.course_manager_assignment.data.sequencers.StudentSequencer;
 import se.lexicon.course_manager_assignment.model.Course;
+import se.lexicon.course_manager_assignment.model.Student;
 
 import java.time.LocalDate;
 import java.util.Collection;
@@ -20,7 +23,13 @@ public class CourseCollectionRepository implements CourseDao{
 
     @Override
     public Course createCourse(String courseName, LocalDate startDate, int weekDuration) {
-        return null;
+        int nextId = CourseSequencer.nextCourseId();
+        Course newCourse = new  Course(nextId);
+        newCourse.setCourseName(courseName);
+        newCourse.setStartDate(startDate);
+        newCourse.setWeekDuration(weekDuration);
+        courses.add(newCourse);
+        return newCourse;
     }
 
     @Override
@@ -45,7 +54,7 @@ public class CourseCollectionRepository implements CourseDao{
 
     @Override
     public Collection<Course> findAll() {
-        return null;
+        return courses;
     }
 
     @Override

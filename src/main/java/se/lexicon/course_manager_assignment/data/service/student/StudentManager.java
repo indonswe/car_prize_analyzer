@@ -33,9 +33,6 @@ public class StudentManager implements StudentService {
         Student student = studentDao.createStudent(form.getName(),form.getEmail(),form.getAddress());
         StudentView studentView = converters.studentToStudentView(student);
         System.out.println("StudentManager - create");
-        //StudentView studentView =
-        //        new StudentView
-        //                (1,form.getName(),form.getEmail(),form.getAddress());
         return studentView;
     }
 
@@ -64,14 +61,6 @@ public class StudentManager implements StudentService {
         System.out.println("StudentManager - findAll");
         Collection<Student> students = studentDao.findAll();
         List<StudentView> studentViewList = converters.studentsToStudentViews(students);
-        /*System.out.println("Students " + studentDao.findAll());
-        for (Student student:studentDao.findAll()){
-            System.out.println("Loop student" + student);
-            StudentView studentView = new StudentView
-                    (student.getId(),student.getName(),student.getEmail(),student.getAddress());
-            studentViewList.add(studentView);
-        }*/
-
         return studentViewList;
     }
 

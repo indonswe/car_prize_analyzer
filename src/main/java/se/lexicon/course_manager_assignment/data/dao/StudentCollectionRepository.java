@@ -19,14 +19,12 @@ public class StudentCollectionRepository implements StudentDao {
 
     @Override
     public Student createStudent(String name, String email, String address) {
-        System.out.println("CS " + students);
         int nextId = StudentSequencer.nextStudentId();
         Student newStudent = new Student(nextId);
         newStudent.setAddress(address);
         newStudent.setEmail(email);
         newStudent.setName(name);
         students.add(newStudent);
-        System.out.println("CS " + students);
         return newStudent;
     }
 

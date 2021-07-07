@@ -8,9 +8,13 @@ import se.lexicon.course_manager_assignment.data.service.converter.Converters;
 import se.lexicon.course_manager_assignment.dto.forms.CreateCourseForm;
 import se.lexicon.course_manager_assignment.dto.forms.UpdateCourseForm;
 import se.lexicon.course_manager_assignment.dto.views.CourseView;
+import se.lexicon.course_manager_assignment.dto.views.StudentView;
+import se.lexicon.course_manager_assignment.model.Course;
+import se.lexicon.course_manager_assignment.model.Student;
 
 
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -29,7 +33,10 @@ public class CourseManager implements CourseService {
 
     @Override
     public CourseView create(CreateCourseForm form) {
-        return null;
+        Course course = courseDao.createCourse
+                (form.getCourseName(),form.getStartDate(),form.getWeekDuration());
+        CourseView courseView = converters.courseToCourseView(course);
+        return courseView;
     }
 
     @Override
@@ -69,7 +76,9 @@ public class CourseManager implements CourseService {
 
     @Override
     public List<CourseView> findAll() {
-        return null;
+        Collection<Course> courses = courseDao.findAll();
+        List<CourseView> courseViewList = converters.coursesToCourseViews(courses);
+        return courseViewList;
     }
 
     @Override

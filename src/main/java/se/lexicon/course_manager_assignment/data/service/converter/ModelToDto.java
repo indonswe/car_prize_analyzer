@@ -30,12 +30,18 @@ public class  ModelToDto implements Converters {
 
     @Override
     public List<CourseView> coursesToCourseViews(Collection<Course> courses) {
-        return null;
+        List<CourseView> courseViewList = new ArrayList<>();
+        for (Course course:courses){
+            CourseView courseView = new CourseView
+                    (course.getId(),course.getCourseName(),
+                            course.getStartDate(),course.getWeekDuration(),course.getStudents());
+            courseViewList.add(courseView);
+        }
+        return courseViewList;
     }
 
     @Override
     public List<StudentView> studentsToStudentViews(Collection<Student> students) {
-        //List<StudentView> studentViewList = new Set<StudentView>();
         System.out.println("StudentManager - students");
         List<StudentView> studentViewList = new ArrayList<>();
         for (Student student:students){
@@ -45,7 +51,6 @@ public class  ModelToDto implements Converters {
             System.out.println("Loop studentView" + studentView);
             studentViewList.add(studentView);
         }
-        
         return studentViewList;
     }
 }
