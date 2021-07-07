@@ -14,6 +14,7 @@ import java.util.List;
 public class  ModelToDto implements Converters {
     @Override
     public StudentView studentToStudentView(Student student) {
+        System.out.println("StudentModel - student");
         StudentView studentView = 
                 new StudentView
                         (student.getId(),student.getName(),student.getEmail(),student.getAddress());
@@ -32,6 +33,7 @@ public class  ModelToDto implements Converters {
 
     @Override
     public List<StudentView> studentsToStudentViews(Collection<Student> students) {
+        System.out.println("StudentManager - students");
         List<StudentView> studentViewList = null;
         for (Student student:students){
             StudentView studentView = new StudentView

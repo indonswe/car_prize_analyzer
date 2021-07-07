@@ -8,6 +8,7 @@ import se.lexicon.course_manager_assignment.data.service.converter.Converters;
 import se.lexicon.course_manager_assignment.dto.forms.CreateStudentForm;
 import se.lexicon.course_manager_assignment.dto.forms.UpdateStudentForm;
 import se.lexicon.course_manager_assignment.dto.views.StudentView;
+import se.lexicon.course_manager_assignment.model.Student;
 
 
 import java.util.List;
@@ -28,7 +29,13 @@ public class StudentManager implements StudentService {
 
     @Override
     public StudentView create(CreateStudentForm form) {
-        return null;
+        Student student = studentDao.createStudent(form.getName(),form.getEmail(),form.getAddress());
+        StudentView studentView = converters.studentToStudentView(student);
+        System.out.println("StudentManager - create");
+        //StudentView studentView =
+        //        new StudentView
+        //                (1,form.getName(),form.getEmail(),form.getAddress());
+        return studentView;
     }
 
     @Override
@@ -53,7 +60,15 @@ public class StudentManager implements StudentService {
 
     @Override
     public List<StudentView> findAll() {
-        return null;
+        System.out.println("StudentManager - findAll");
+        List<StudentView> studentViewList = null;
+        for (Student student:studentDao.findAll()){
+            StudentView studentView = new StudentView
+                    (student.getId(),student.getName(),student.getEmail(),student.getAddress());
+            studentViewList.add(studentView);
+        }
+
+        return studentViewList;
     }
 
     @Override
