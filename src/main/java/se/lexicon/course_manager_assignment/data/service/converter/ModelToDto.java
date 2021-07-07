@@ -7,25 +7,33 @@ import se.lexicon.course_manager_assignment.model.Course;
 import se.lexicon.course_manager_assignment.model.Student;
 
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Component
 public class  ModelToDto implements Converters {
     @Override
     public StudentView studentToStudentView(Student student) {
-        System.out.println("StudentModel - student");
         StudentView studentView = 
                 new StudentView
-                        (student.getId(),student.getName(),student.getEmail(),student.getAddress());
+                        (student.getId(),student.getName(),
+                                student.getEmail(),student.getAddress());
         return studentView;
     }
 
     @Override
     public CourseView courseToCourseView(Course course) {
-        CourseView courseView = new CourseView(course.getId(),course.getCourseName(),course.getStartDate(),course.getWeekDuration(),null);
+        List<StudentView> students = new ArrayList<>();
+        for (Student student:course.getStudents()){
+            StudentView studentView =
+                    new StudentView
+                            (student.getId(),student.getName(),
+                                    student.getEmail(),student.getAddress());
+            students.add(studentView);
+        }
+        //students = Collections.singletonList((StudentView) course.getStudents());
+        CourseView courseView = new CourseView
+                (course.getId(),course.getCourseName(),
+                        course.getStartDate(),course.getWeekDuration(),students);
         return courseView;
     } 
 
@@ -33,9 +41,17 @@ public class  ModelToDto implements Converters {
     public List<CourseView> coursesToCourseViews(Collection<Course> courses) {
         List<CourseView> courseViewList = new ArrayList<>();
         for (Course course:courses){
+            List<StudentView> students = new ArrayList<>();
+            for (Student student:course.getStudents()){
+                StudentView studentView =
+                        new StudentView
+                                (student.getId(),student.getName(),
+                                        student.getEmail(),student.getAddress());
+                students.add(studentView);
+            }
             CourseView courseView = new CourseView
                     (course.getId(),course.getCourseName(),
-                            course.getStartDate(),course.getWeekDuration(),null);
+                            course.getStartDate(),course.getWeekDuration(),students);
             courseViewList.add(courseView);
         }
         return courseViewList;
