@@ -42,22 +42,46 @@ public class CourseManager implements CourseService {
 
     @Override
     public CourseView update(UpdateCourseForm form) {
+        for (Course course:courseDao.findAll()){
+            if (course.getId()==form.getId()) {
+                course.setCourseName(form.getCourseName());
+                course.setStartDate(form.getStartDate());
+                course.setWeekDuration(form.getWeekDuration());
+                CourseView courseView = converters.courseToCourseView(course);
+                return courseView;
+            }
+        }
         return null;
     }
 
     @Override
     public List<CourseView> searchByCourseName(String courseName) {
-        return null;
+        Collection<Course> coursesNew = new ArrayList<>();
+        for (Course course:courseDao.findAll()){
+            if (course.getCourseName().equals(courseName)) coursesNew.add(course);
+        }
+        List<CourseView> courseViewList = converters.coursesToCourseViews(coursesNew);
+        return courseViewList;
     }
 
     @Override
     public List<CourseView> searchByDateBefore(LocalDate end) {
-        return null;
+        Collection<Course> coursesNew = new ArrayList<>();
+        for (Course course:courseDao.findAll()){
+            if (course.getStartDate().isBefore(end)) coursesNew.add(course);
+        }
+        List<CourseView> courseViewList = converters.coursesToCourseViews(coursesNew);
+        return courseViewList;
     }
 
     @Override
     public List<CourseView> searchByDateAfter(LocalDate start) {
-        return null;
+        Collection<Course> coursesNew = new ArrayList<>();
+        for (Course course:courseDao.findAll()){
+            if (course.getStartDate().isAfter(start)) coursesNew.add(course);
+        }
+        List<CourseView> courseViewList = converters.coursesToCourseViews(coursesNew);
+        return courseViewList;
     }
 
     @Override
