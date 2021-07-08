@@ -44,17 +44,29 @@ public class CourseCollectionRepository implements CourseDao{
 
     @Override
     public Collection<Course> findByNameContains(String name) {
-        return null;
+        Collection<Course> coursesNew = new ArrayList<>();
+        for (Course course:courses){
+            if (course.getCourseName().equals(name)) coursesNew.add(course);
+        }
+        return coursesNew;
     }
 
     @Override
     public Collection<Course> findByDateBefore(LocalDate end) {
-        return null;
+        Collection<Course> coursesNew = new ArrayList<>();
+        for (Course course:courses){
+            if (course.getStartDate().isBefore(end)) coursesNew.add(course);
+        }
+        return coursesNew;
     }
 
     @Override
     public Collection<Course> findByDateAfter(LocalDate start) {
-        return null;
+        Collection<Course> coursesNew = new ArrayList<>();
+        for (Course course:courses){
+            if (course.getStartDate().isAfter(start)) coursesNew.add(course);
+        }
+        return coursesNew;
     }
 
     @Override
