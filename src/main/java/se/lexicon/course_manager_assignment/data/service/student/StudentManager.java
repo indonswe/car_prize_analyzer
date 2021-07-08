@@ -51,7 +51,9 @@ public class StudentManager implements StudentService {
 
     @Override
     public StudentView searchByEmail(String email) {
-        return null;
+        Student student = studentDao.findByEmailIgnoreCase(email);
+        StudentView studentView = converters.studentToStudentView(student);
+        return studentView;
     }
 
     @Override

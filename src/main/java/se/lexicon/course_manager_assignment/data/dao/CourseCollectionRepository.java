@@ -8,6 +8,7 @@ import se.lexicon.course_manager_assignment.model.Course;
 import se.lexicon.course_manager_assignment.model.Student;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 
@@ -63,11 +64,20 @@ public class CourseCollectionRepository implements CourseDao{
 
     @Override
     public Collection<Course> findByStudentId(int studentId) {
-        return null;
+        Collection<Course> coursesNew = new ArrayList<>();
+        for (Course course:courses){
+           for(Student student:course.getStudents()){
+               if (student.getId()==studentId) coursesNew.add(course);
+            }
+        }
+        return coursesNew;
     }
 
     @Override
     public boolean removeCourse(Course course) {
+        for(Course i:courses){
+            if (i.getId()==course.getId()) return courses.remove(i);
+        }
         return false;
     }
 

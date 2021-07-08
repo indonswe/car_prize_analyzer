@@ -59,13 +59,12 @@ public class  ModelToDto implements Converters {
 
     @Override
     public List<StudentView> studentsToStudentViews(Collection<Student> students) {
-        System.out.println("StudentManager - students");
+        //System.out.println("StudentManager - students");
         List<StudentView> studentViewList = new ArrayList<>();
         for (Student student:students){
             System.out.println("Loop student" + student);
             StudentView studentView = new StudentView
                     (student.getId(),student.getName(),student.getEmail(),student.getAddress());
-            System.out.println("Loop studentView" + studentView);
             studentViewList.add(studentView);
         }
         return studentViewList;
