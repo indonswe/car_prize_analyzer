@@ -3,6 +3,8 @@ package se.lexicon.course_manager_assignment.data.dao;
 
 
 import se.lexicon.course_manager_assignment.data.sequencers.StudentSequencer;
+import se.lexicon.course_manager_assignment.data.service.course.CourseManager;
+import se.lexicon.course_manager_assignment.model.Course;
 import se.lexicon.course_manager_assignment.model.Student;
 
 import java.util.ArrayList;
@@ -62,7 +64,9 @@ public class StudentCollectionRepository implements StudentDao {
     @Override
     public boolean removeStudent(Student student) {
         for(Student i:students){
-            if (i.getId()==student.getId()) return students.remove(i);
+            if (i.getId()==student.getId()) {
+                return students.remove(i);
+            }
         }
         return false;
     }

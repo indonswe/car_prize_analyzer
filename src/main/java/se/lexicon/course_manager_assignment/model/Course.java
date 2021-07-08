@@ -16,6 +16,10 @@ public class Course {
     private int weekDuration;
     private List<Student> students = new ArrayList<>();
 
+    public Course(){
+
+    }
+
     public Course(int id) {
         this.id = id;
     }

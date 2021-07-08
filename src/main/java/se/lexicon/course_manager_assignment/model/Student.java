@@ -12,10 +12,11 @@ public class Student {
     private String email;
     private String address;
 
+    public Student() {
+    }
+
     public Student(int id){
-
         this.id = id;
-
     }
 
     public int getId() {

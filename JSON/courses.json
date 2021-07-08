@@ -1,1 +1,34 @@
-[ ]
+[ {
+  "id" : 8,
+  "courseName" : "eeeee",
+  "startDate" : "2021-07-30",
+  "weekDuration" : 1,
+  "students" : [ ]
+}, {
+  "id" : 9,
+  "courseName" : "ggggg",
+  "startDate" : "2021-07-31",
+  "weekDuration" : 1,
+  "students" : [ ]
+}, {
+  "id" : 7,
+  "courseName" : "ccccc",
+  "startDate" : "2021-07-23",
+  "weekDuration" : 1,
+  "students" : [ {
+    "id" : 16,
+    "name" : "abc def",
+    "email" : "b@c.com",
+    "address" : "c"
+  }, {
+    "id" : 17,
+    "name" : "Adrian Nilsson",
+    "email" : "afc2002afc@hotmail.com",
+    "address" : "Villagatan\r\n20"
+  }, {
+    "id" : 15,
+    "name" : "pqr stu",
+    "email" : "pqr@stu.com",
+    "address" : "v"
+  } ]
+} ]
