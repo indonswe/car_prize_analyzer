@@ -14,6 +14,7 @@ import se.lexicon.course_manager_assignment.model.Student;
 
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -88,12 +89,21 @@ public class CourseManager implements CourseService {
 
     @Override
     public List<CourseView> findByStudentId(int studentId) {
-        return null;
+        Collection<Course> coursesNew = new ArrayList<>();
+        for (Course course:courseDao.findAll()){
+            for(Student student:course.getStudents()){
+                if (student.getId()==studentId) coursesNew.add(course);
+            }
+        }
+        List<CourseView> courseViewList = converters.coursesToCourseViews(coursesNew);
+        return courseViewList;
     }
 
     @Override
     public boolean deleteCourse(int id) {
-        //Course course = courseDao.findById(id);
-        return deleteCourse(id);
+        for (Course course:courseDao.findAll()){
+            if (course.getId()==id) return courseDao.removeCourse(course);
+        }
+        return false;
     }
 }
