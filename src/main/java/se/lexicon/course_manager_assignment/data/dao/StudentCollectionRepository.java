@@ -36,7 +36,7 @@ public class StudentCollectionRepository implements StudentDao {
     @Override
     public Student findByEmailIgnoreCase(String email) {
         for (Student student:students){
-            if (student.getEmail().equals(email)) return student;
+            if (student.getEmail().equalsIgnoreCase(email)) return student;
         }
         return null;
     }
@@ -45,7 +45,7 @@ public class StudentCollectionRepository implements StudentDao {
     public Collection<Student> findByNameContains(String name) {
         Collection<Student> studentCollection = new ArrayList<>();
         for (Student student:students){
-            if (student.getName().equals(name)) studentCollection.add(student);
+            if (student.getName().contains(name)) studentCollection.add(student);
         }
         return studentCollection;
     }

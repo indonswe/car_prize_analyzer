@@ -47,7 +47,7 @@ public class CourseCollectionRepository implements CourseDao{
     public Collection<Course> findByNameContains(String name) {
         Collection<Course> coursesNew = new ArrayList<>();
         for (Course course:courses){
-            if (course.getCourseName().equals(name)) coursesNew.add(course);
+            if (course.getCourseName().contains(name)) coursesNew.add(course);
         }
         return coursesNew;
     }

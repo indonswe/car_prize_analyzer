@@ -24,11 +24,12 @@ public class  ModelToDto implements Converters {
     public CourseView courseToCourseView(Course course) {
         List<StudentView> students = new ArrayList<>();
         for (Student student:course.getStudents()){
-            StudentView studentView =
+
+            /*StudentView studentView =
                     new StudentView
                             (student.getId(),student.getName(),
-                                    student.getEmail(),student.getAddress());
-            students.add(studentView);
+                                    student.getEmail(),student.getAddress());*/
+            students.add(studentToStudentView(student));
         }
         //students = Collections.singletonList((StudentView) course.getStudents());
         CourseView courseView = new CourseView
@@ -43,11 +44,11 @@ public class  ModelToDto implements Converters {
         for (Course course:courses){
             List<StudentView> students = new ArrayList<>();
             for (Student student:course.getStudents()){
-                StudentView studentView =
+                /*StudentView studentView =
                         new StudentView
                                 (student.getId(),student.getName(),
-                                        student.getEmail(),student.getAddress());
-                students.add(studentView);
+                                        student.getEmail(),student.getAddress());*/
+                students.add(studentToStudentView(student));
             }
             CourseView courseView = new CourseView
                     (course.getId(),course.getCourseName(),
@@ -62,10 +63,10 @@ public class  ModelToDto implements Converters {
         //System.out.println("StudentManager - students");
         List<StudentView> studentViewList = new ArrayList<>();
         for (Student student:students){
-            System.out.println("Loop student" + student);
-            StudentView studentView = new StudentView
+            studentViewList.add(studentToStudentView(student));
+            /*StudentView studentView = new StudentView
                     (student.getId(),student.getName(),student.getEmail(),student.getAddress());
-            studentViewList.add(studentView);
+            studentViewList.add(studentView);*/
         }
         return studentViewList;
     }

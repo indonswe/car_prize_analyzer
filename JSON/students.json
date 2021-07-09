@@ -1,4 +1,14 @@
 [ {
+  "id" : 19,
+  "name" : "Mickey Mouse",
+  "email" : "mickey@m.com",
+  "address" : "ankeborg"
+}, {
+  "id" : 20,
+  "name" : "Kajsa Anka",
+  "email" : "kajsa@anka.com",
+  "address" : "ankeborg"
+}, {
   "id" : 18,
   "name" : "Kalle Anka",
   "email" : "kalle@mail.com",

@@ -55,10 +55,13 @@ public class StudentManager implements StudentService {
 
     @Override
     public StudentView findById(int id) {
-        for(StudentView studentView:converters.studentsToStudentViews(studentDao.findAll())){
+        Student student = studentDao.findById(id);
+        StudentView studentView = converters.studentToStudentView(student);
+        return studentView;
+        /*for(StudentView studentView:converters.studentsToStudentViews(studentDao.findAll())){
             if (studentView.getId()==id) return studentView;
         }
-        return null;
+        return null;*/
     }
 
     @Override
