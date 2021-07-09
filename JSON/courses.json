@@ -1,23 +1,13 @@
 [ {
-  "id" : 10,
-  "courseName" : "ggggg",
+  "id" : 11,
+  "courseName" : "eeeee ggggg",
   "startDate" : "2021-07-23",
   "weekDuration" : 1,
   "students" : [ {
-    "id" : 20,
-    "name" : "Kajsa Anka",
-    "email" : "kajsa@anka.com",
-    "address" : "ankeborg"
-  }, {
-    "id" : 19,
+    "id" : 22,
     "name" : "Mickey Mouse",
-    "email" : "mickey@m.com",
-    "address" : "ankeborg"
-  }, {
-    "id" : 18,
-    "name" : "Kalle Anka",
-    "email" : "kalle@mail.com",
-    "address" : "Ankeborgsgatan"
+    "email" : "mickey@mail.com",
+    "address" : "Ankeborg\r\n"
   } ]
 }, {
   "id" : 8,
