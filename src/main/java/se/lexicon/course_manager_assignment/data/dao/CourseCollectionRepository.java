@@ -17,6 +17,7 @@ public class CourseCollectionRepository implements CourseDao{
 
     private Collection<Course> courses;
 
+    public CourseCollectionRepository() { }
 
     public CourseCollectionRepository(Collection<Course> courses) {
         this.courses = courses;

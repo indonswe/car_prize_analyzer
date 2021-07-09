@@ -7,6 +7,7 @@ import se.lexicon.course_manager_assignment.data.dao.StudentDao;
 import se.lexicon.course_manager_assignment.data.service.converter.Converters;
 import se.lexicon.course_manager_assignment.dto.forms.CreateStudentForm;
 import se.lexicon.course_manager_assignment.dto.forms.UpdateStudentForm;
+import se.lexicon.course_manager_assignment.dto.views.CourseView;
 import se.lexicon.course_manager_assignment.dto.views.StudentView;
 import se.lexicon.course_manager_assignment.model.Course;
 import se.lexicon.course_manager_assignment.model.Student;
@@ -40,6 +41,15 @@ public class StudentManager implements StudentService {
 
     @Override
     public StudentView update(UpdateStudentForm form) {
+        for (Student student:studentDao.findAll()){
+            if (student.getId()==form.getId()) {
+                student.setName(form.getName());
+                student.setEmail(form.getEmail());
+                student.setAddress(form.getAddress());
+                StudentView studentView = converters.studentToStudentView(student);
+                return studentView;
+            }
+        }
         return null;
     }
 
@@ -77,9 +87,12 @@ public class StudentManager implements StudentService {
     public boolean deleteStudent(int id) {
         Collection<Course> coursesNew = new ArrayList<>();
         Collection<Student> studentCollection = new ArrayList<>();
+        //
         int saveCourse = 999;
         int saveStudent = 999;
         boolean identifiedInCourse = false;
+        //The above is needed because I get an concurrence error if I try to remove
+        //student from course in the for loop so instead I save the information
         Student student = studentDao.findById(id);
         coursesNew = courseDao.findAll();
         for (Course course:coursesNew){
@@ -94,9 +107,7 @@ public class StudentManager implements StudentService {
                     saveCourse = course.getId();
                     saveStudent = studentCourse.getId();
                     identifiedInCourse = true;
-
                 }
-
             }
         }
         if (identifiedInCourse) {

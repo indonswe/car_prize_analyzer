@@ -16,6 +16,8 @@ public class StudentCollectionRepository implements StudentDao {
 
     private Collection<Student> students;
 
+    public StudentCollectionRepository() { }
+
     public StudentCollectionRepository(Collection<Student> students) {
         this.students = students;
     }
