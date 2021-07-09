@@ -8,9 +8,11 @@ import se.lexicon.course_manager_assignment.data.service.converter.Converters;
 import se.lexicon.course_manager_assignment.dto.forms.CreateStudentForm;
 import se.lexicon.course_manager_assignment.dto.forms.UpdateStudentForm;
 import se.lexicon.course_manager_assignment.dto.views.StudentView;
+import se.lexicon.course_manager_assignment.model.Course;
 import se.lexicon.course_manager_assignment.model.Student;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -73,7 +75,34 @@ public class StudentManager implements StudentService {
 
     @Override
     public boolean deleteStudent(int id) {
+        Collection<Course> coursesNew = new ArrayList<>();
+        Collection<Student> studentCollection = new ArrayList<>();
+        int saveCourse = 999;
+        int saveStudent = 999;
+        boolean identifiedInCourse = false;
         Student student = studentDao.findById(id);
+        coursesNew = courseDao.findAll();
+        for (Course course:coursesNew){
+            System.out.println("Looping");
+            System.out.println(course);
+            studentCollection = course.getStudents();
+            System.out.println("S C " + studentCollection);
+            for (Student studentCourse:studentCollection){
+                System.out.println("working");
+                if (studentCourse.getId()==id) {
+                    System.out.println("Unenroll");
+                    saveCourse = course.getId();
+                    saveStudent = studentCourse.getId();
+                    identifiedInCourse = true;
+
+                }
+
+            }
+        }
+        if (identifiedInCourse) {
+            Boolean unenroll = courseDao.findById
+                    (saveCourse).unenrollStudent(studentDao.findById(saveStudent));
+        }
         return studentDao.removeStudent(student);
     }
 }

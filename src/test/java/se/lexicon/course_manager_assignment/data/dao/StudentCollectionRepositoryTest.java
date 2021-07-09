@@ -48,9 +48,30 @@ public class StudentCollectionRepositoryTest {
         assertEquals(student.getName(),"Testing");
         assertEquals(student.getEmail(),"Testing@testing.com" );
         assertEquals(student.getAddress(),"Testingstreet");
-
-
     }
 
 
+    @Test
+    void findByEmailIgnoreCase() {
+    }
+
+    @Test
+    void findByNameContains() {
+    }
+
+    @Test
+    void findById() {
+    }
+
+    @Test
+    void findAll() {
+    }
+
+    @Test
+    void removeStudent() {
+    }
+
+    @Test
+    void clear() {
+    }
 }
