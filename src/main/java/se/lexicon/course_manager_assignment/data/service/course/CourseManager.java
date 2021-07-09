@@ -100,10 +100,9 @@ public class CourseManager implements CourseService {
 
     @Override
     public CourseView findById(int id) {
-        for(CourseView courseView:converters.coursesToCourseViews(courseDao.findAll())){
-            if (courseView.getId()==id) return  courseView;
-        }
-        return null;
+        Course course = courseDao.findById(id);
+        CourseView courseView = converters.courseToCourseView(course);
+        return courseView;
     }
 
     @Override
@@ -127,9 +126,13 @@ public class CourseManager implements CourseService {
 
     @Override
     public boolean deleteCourse(int id) {
+        Course course = courseDao.findById(id);
+        return courseDao.removeCourse(course);
+        /*CourseView courseView = converters.courseToCourseView(course);
+        return courseView;
         for (Course course:courseDao.findAll()){
             if (course.getId()==id) return courseDao.removeCourse(course);
         }
-        return false;
+        return false;*/
     }
 }

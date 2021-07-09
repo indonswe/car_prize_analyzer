@@ -35,7 +35,6 @@ public class StudentManager implements StudentService {
     public StudentView create(CreateStudentForm form) {
         Student student = studentDao.createStudent(form.getName(),form.getEmail(),form.getAddress());
         StudentView studentView = converters.studentToStudentView(student);
-        System.out.println("StudentManager - create");
         return studentView;
     }
 
@@ -80,7 +79,6 @@ public class StudentManager implements StudentService {
 
     @Override
     public List<StudentView> findAll() {
-        System.out.println("StudentManager - findAll");
         Collection<Student> students = studentDao.findAll();
         List<StudentView> studentViewList = converters.studentsToStudentViews(students);
         return studentViewList;
@@ -88,7 +86,11 @@ public class StudentManager implements StudentService {
 
     @Override
     public boolean deleteStudent(int id) {
-        Collection<Course> coursesNew = new ArrayList<>();
+        Student student = studentDao.findById(id);
+        for (Course course:courseDao.findByStudentId(id)){
+            course.unenrollStudent(student);
+        }
+        /*Collection<Course> coursesNew = new ArrayList<>();
         Collection<Student> studentCollection = new ArrayList<>();
         //
         int saveCourse = 999;
@@ -116,7 +118,7 @@ public class StudentManager implements StudentService {
         if (identifiedInCourse) {
             Boolean unenroll = courseDao.findById
                     (saveCourse).unenrollStudent(studentDao.findById(saveStudent));
-        }
+        }*/
         return studentDao.removeStudent(student);
     }
 }
