@@ -10,8 +10,12 @@ import se.lexicon.course_manager_assignment.data.dao.StudentCollectionRepository
 import se.lexicon.course_manager_assignment.data.dao.StudentDao;
 import se.lexicon.course_manager_assignment.data.sequencers.StudentSequencer;
 import se.lexicon.course_manager_assignment.data.service.converter.ModelToDto;
+import se.lexicon.course_manager_assignment.dto.forms.CreateStudentForm;
+import se.lexicon.course_manager_assignment.dto.views.StudentView;
+import se.lexicon.course_manager_assignment.model.Student;
 
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest(classes = {StudentManager.class, CourseCollectionRepository.class, StudentCollectionRepository.class, ModelToDto.class})
@@ -35,5 +39,47 @@ public class StudentManagerTest {
     void tearDown() {
         StudentSequencer.setStudentSequencer(0);
         studentDao.clear();
+    }
+
+    @Test
+    void create() {
+        int actual = StudentSequencer.getStudentSequencer();
+        int expected = actual + 1;
+
+        CreateStudentForm form = new CreateStudentForm
+                (1,"Testing", "Testing@testing.com", "Testingstreet");
+
+        StudentView student = testObject.create(form);
+
+        actual = StudentSequencer.getStudentSequencer();
+
+        assertEquals(expected,actual);
+        assertEquals(student.getName(),"Testing");
+        assertEquals(student.getEmail(),"Testing@testing.com" );
+        assertEquals(student.getAddress(),"Testingstreet");
+    }
+
+    @Test
+    void update() {
+    }
+
+    @Test
+    void findById() {
+    }
+
+    @Test
+    void searchByEmail() {
+    }
+
+    @Test
+    void searchByName() {
+    }
+
+    @Test
+    void findAll() {
+    }
+
+    @Test
+    void deleteStudent() {
     }
 }
