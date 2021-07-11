@@ -3,7 +3,22 @@
   "courseName" : "eeeee",
   "startDate" : "2021-07-30",
   "weekDuration" : 1,
-  "students" : [ ]
+  "students" : [ {
+    "id" : 20,
+    "name" : "Kajsa Anka",
+    "email" : "kajsa@anka.com",
+    "address" : "ankeborg"
+  }, {
+    "id" : 18,
+    "name" : "Kalle Anka",
+    "email" : "kalle@mail.com",
+    "address" : "Ankeborgsgatan"
+  }, {
+    "id" : 22,
+    "name" : "Mickey Mouse",
+    "email" : "mickey@mail.com",
+    "address" : "Ankeborg\r\n"
+  } ]
 }, {
   "id" : 9,
   "courseName" : "ggggg",
