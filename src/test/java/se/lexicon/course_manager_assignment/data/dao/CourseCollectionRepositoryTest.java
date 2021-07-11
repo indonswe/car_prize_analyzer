@@ -55,22 +55,65 @@ public class CourseCollectionRepositoryTest {
 
     @Test
     void findById() {
+
+        Course course = testObject.createCourse
+                ("Testing", LocalDate.parse("2019-05-05"),1);
+
+        Course actual = testObject.findById(1);
+
+        assertEquals(course, actual);
+
     }
 
     @Test
     void findByNameContains() {
+
+        //Course course = testObject.createCourse
+               // ("Testing Testberg", LocalDate.parse("2019-05-05"),1);
+        //Collection<Course> courseCollection;
+
+        //courseCollection = testObject.findByNameContains("Testing");
+
+        //assertTrue(courseCollection.contains(course));
+
     }
 
     @Test
     void findByDateBefore() {
+
+        Course course = testObject.createCourse
+                ("Testing", LocalDate.parse("2019-05-05"),1);
+        Collection<Course> courseCollection;
+
+        courseCollection = testObject.findByDateBefore(LocalDate.parse("2019-05-13"));
+
+        assertTrue(courseCollection.contains(course));
+
     }
 
     @Test
     void findByDateAfter() {
+
+        Course course = testObject.createCourse
+                ("Testing", LocalDate.parse("2019-05-05"),1);
+        Collection<Course> courseCollection;
+
+        courseCollection = testObject.findByDateAfter(LocalDate.parse("2019-05-01"));
+
+        assertTrue(courseCollection.contains(course));
+
     }
 
     @Test
     void findAll() {
+        Course course = testObject.createCourse
+                ("Testing", LocalDate.parse("2019-05-05"),1);
+        Collection<Course> courseCollection;
+
+        courseCollection = testObject.findAll();
+
+        assertTrue(courseCollection.contains(course));
+
     }
 
     @Test
@@ -85,10 +128,6 @@ public class CourseCollectionRepositoryTest {
         courseCollection = testObject.findByStudentId(1);
 
         assertTrue(courseCollection.contains(course));
-
-
-
-
 
     }
 

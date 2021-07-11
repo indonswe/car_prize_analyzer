@@ -14,9 +14,7 @@ import se.lexicon.course_manager_assignment.dto.forms.CreateStudentForm;
 import se.lexicon.course_manager_assignment.dto.views.StudentView;
 import se.lexicon.course_manager_assignment.model.Student;
 
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(classes = {StudentManager.class, CourseCollectionRepository.class, StudentCollectionRepository.class, ModelToDto.class})
 public class StudentManagerTest {
@@ -65,6 +63,15 @@ public class StudentManagerTest {
 
     @Test
     void findById() {
+
+        CreateStudentForm form = new CreateStudentForm
+                (1,"Testing", "Testing@testing.com", "Testingstreet");
+
+        StudentView studentView = testObject.create(form);
+        StudentView actual = testObject.findById(1);
+
+        assertEquals(studentView,actual);
+
     }
 
     @Test
@@ -81,5 +88,16 @@ public class StudentManagerTest {
 
     @Test
     void deleteStudent() {
+
+        CreateStudentForm form = new CreateStudentForm
+                (1,"Testing", "Testing@testing.com", "Testingstreet");
+
+        //StudentView student = testObject.create(form);
+        //Boolean actual = testObject.deleteStudent(1);
+
+        //assertTrue(actual);
+
+
+
     }
 }
