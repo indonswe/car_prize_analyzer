@@ -1,15 +1,4 @@
 [ {
-  "id" : 11,
-  "courseName" : "eeeee ggggg",
-  "startDate" : "2021-07-23",
-  "weekDuration" : 1,
-  "students" : [ {
-    "id" : 22,
-    "name" : "Mickey Mouse",
-    "email" : "mickey@mail.com",
-    "address" : "Ankeborg\r\n"
-  } ]
-}, {
   "id" : 8,
   "courseName" : "eeeee",
   "startDate" : "2021-07-30",
@@ -19,6 +8,12 @@
   "id" : 9,
   "courseName" : "ggggg",
   "startDate" : "2021-07-31",
+  "weekDuration" : 1,
+  "students" : [ ]
+}, {
+  "id" : 11,
+  "courseName" : "eeeee ggggg",
+  "startDate" : "2021-07-23",
   "weekDuration" : 1,
   "students" : [ ]
 } ]

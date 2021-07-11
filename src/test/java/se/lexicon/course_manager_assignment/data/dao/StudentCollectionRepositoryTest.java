@@ -66,10 +66,21 @@ public class StudentCollectionRepositoryTest {
 
     @Test
     void findByEmailIgnoreCase() {
+        Student expected = testObject.createStudent
+                ("Testing", "Testing@testing.com", "Testingstreet");
+        Student actual = testObject.findByEmailIgnoreCase("testing@testing.com");
+        assertEquals(expected,actual);
+
     }
 
     @Test
     void findByNameContains() {
+        //Student expected = testObject.createStudent
+               // ("Testing", "Testing@testing.com", "Testingstreet");
+        //Collection<Student> actual = testObject.findByNameContains("Testing Testholm");
+        //System.out.println(actual);
+        //assertTrue(actual.contains(expected));
+
     }
 
     @Test
@@ -93,9 +104,21 @@ public class StudentCollectionRepositoryTest {
 
     @Test
     void removeStudent() {
+        Student unexpected = testObject.createStudent
+                ("Testing", "Testing@testing.com", "Testingstreet");
+        boolean actual = testObject.removeStudent(unexpected);
+        assertEquals(actual,true);
     }
 
     @Test
     void clear() {
+        Student expected = testObject.createStudent
+                ("Testing", "Testing@testing.com", "Testingstreet");
+        testObject.clear();
+        Collection<Student> actual = testObject.findAll();
+
+        assertFalse(actual.contains(expected));
+
+
     }
 }
