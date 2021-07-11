@@ -14,8 +14,7 @@ import se.lexicon.course_manager_assignment.model.Student;
 import java.time.LocalDate;
 import java.util.Collection;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(classes = {CourseCollectionRepository.class})
 public class CourseCollectionRepositoryTest {
@@ -76,6 +75,21 @@ public class CourseCollectionRepositoryTest {
 
     @Test
     void findByStudentId() {
+        Student student = new Student(1);
+        Course course = testObject.createCourse
+                ("Testing", LocalDate.parse("2019-05-05"),1);
+        Collection<Course> courseCollection;
+
+
+        course.enrollStudent(student);
+        courseCollection = testObject.findByStudentId(1);
+
+        assertTrue(courseCollection.contains(course));
+
+
+
+
+
     }
 
     @Test
