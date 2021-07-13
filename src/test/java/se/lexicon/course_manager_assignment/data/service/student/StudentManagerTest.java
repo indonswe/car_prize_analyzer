@@ -14,6 +14,8 @@ import se.lexicon.course_manager_assignment.dto.forms.CreateStudentForm;
 import se.lexicon.course_manager_assignment.dto.views.StudentView;
 import se.lexicon.course_manager_assignment.model.Student;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(classes = {StudentManager.class, CourseCollectionRepository.class, StudentCollectionRepository.class, ModelToDto.class})
@@ -76,14 +78,41 @@ public class StudentManagerTest {
 
     @Test
     void searchByEmail() {
+
+        CreateStudentForm form = new CreateStudentForm
+                (1,"Testing", "Testing@testing.com", "Testingstreet");
+
+        StudentView studentView = testObject.create(form);
+        StudentView actual = testObject.searchByEmail("Testing@testing.com");
+
+        assertTrue(studentView.equals(actual));
+
     }
 
     @Test
     void searchByName() {
+
+        CreateStudentForm form = new CreateStudentForm
+                (1,"Testing", "Testing@testing.com", "Testingstreet");
+
+        StudentView studentView = testObject.create(form);
+        List<StudentView> actual = testObject.searchByName("Testing");
+
+        assertTrue(actual.contains(studentView));
+
     }
 
     @Test
     void findAll() {
+
+        CreateStudentForm form = new CreateStudentForm
+                (1,"Testing", "Testing@testing.com", "Testingstreet");
+
+        StudentView studentView = testObject.create(form);
+        List<StudentView> actual = testObject.findAll();
+
+        assertTrue(actual.contains(studentView));
+
     }
 
     @Test
@@ -92,12 +121,10 @@ public class StudentManagerTest {
         CreateStudentForm form = new CreateStudentForm
                 (1,"Testing", "Testing@testing.com", "Testingstreet");
 
-        //StudentView student = testObject.create(form);
+        //StudentView studentView = testObject.create(form);
         //Boolean actual = testObject.deleteStudent(1);
 
         //assertTrue(actual);
-
-
 
     }
 }
