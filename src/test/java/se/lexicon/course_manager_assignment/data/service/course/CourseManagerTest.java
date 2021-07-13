@@ -18,9 +18,9 @@ import se.lexicon.course_manager_assignment.dto.views.StudentView;
 
 
 import java.time.LocalDate;
+import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(classes = {CourseManager.class, CourseCollectionRepository.class, ModelToDto.class, StudentCollectionRepository.class})
 public class CourseManagerTest {
@@ -80,6 +80,15 @@ public class CourseManagerTest {
 
     @Test
     void searchByDateAfter() {
+
+        CreateCourseForm form = new CreateCourseForm
+                (1,"Testjavaprog", LocalDate.parse("2019-05-17"),1);
+
+        CourseView courseView = testObject.create(form);
+        List<CourseView> actual = testObject.searchByDateAfter(LocalDate.parse("2019-01-23"));
+
+        assertTrue(actual.contains(courseView));
+
     }
 
     @Test
@@ -92,6 +101,15 @@ public class CourseManagerTest {
 
     @Test
     void findById() {
+
+        CreateCourseForm form = new CreateCourseForm
+                (1,"Testjavaprog", LocalDate.parse("2019-05-17"),1);
+
+        CourseView courseView = testObject.create(form);
+        CourseView actual = testObject.findById(1);
+
+        assertEquals(courseView,actual);
+
     }
 
     @Test
