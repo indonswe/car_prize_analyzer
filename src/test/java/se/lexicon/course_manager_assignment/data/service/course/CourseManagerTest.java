@@ -136,18 +136,16 @@ public class CourseManagerTest {
     @Test
     void removeStudentFromCourse() {
 
-        /*CreateCourseForm form = new CreateCourseForm
-                (1,"Testjavaprog", LocalDate.parse("2019-05-17"),1);
-        CreateStudentForm form1 = new CreateStudentForm
-                (1,"Testing", "Testing@testing.com", "Testingstreet");
 
+        //CreateStudentForm form1 = new CreateStudentForm
+         //       (1,"Testing", "Testing@testing.com", "Testingstreet");
 
-        Course course = new Course(1);
+        /*CourseView courseView = testObject.create(form);
         Student student = new Student(1);
-        course.enrollStudent(student);
-
         boolean addStudent = testObject.addStudentToCourse(1,1);
+        System.out.println(addStudent);
         boolean actual = testObject.removeStudentFromCourse(1,1);
+        System.out.println(actual);
 
         assertTrue(actual);*/
 

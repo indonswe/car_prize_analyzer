@@ -82,13 +82,20 @@ public class Course {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            System.out.println("hmm");
+            return true;
+        }
+        System.out.println("yep");
+        if (o == null || getClass() != o.getClass()) {
+            System.out.println("false");
+            return false;
+        }
         Course course = (Course) o;
         return id == course.id &&
                 weekDuration == course.weekDuration &&
                 courseName.equals(course.courseName) &&
-                startDate.equals(course.startDate) &&
+                startDate.equals(course.startDate)&&
                 students.equals(course.students);
     }
 

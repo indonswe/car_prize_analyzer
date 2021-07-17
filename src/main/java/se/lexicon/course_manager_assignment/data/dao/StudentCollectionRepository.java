@@ -52,6 +52,7 @@ public class StudentCollectionRepository implements StudentDao {
 
     @Override
     public Student findById(int id) {
+        if (students==null) return null;
         for (Student student:students){
             if (student.getId()==id) return student;
         }

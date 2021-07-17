@@ -37,6 +37,7 @@ public class CourseCollectionRepository implements CourseDao{
 
     @Override
     public Course findById(int id) {
+        if (courses==null) return null;
         for (Course course:courses){
             if (course.getId()==id) return course;
         }

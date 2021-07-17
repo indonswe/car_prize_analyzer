@@ -88,13 +88,17 @@ public class CourseManager implements CourseService {
     public boolean addStudentToCourse(int courseId, int studentId) {
         Course course = courseDao.findById(courseId);
         Student student = studentDao.findById(studentId);
+        System.out.println(course);
+        if (course==null || student==null) return false;
         return course.enrollStudent(student);
     }
 
     @Override
     public boolean removeStudentFromCourse(int courseId, int studentId) {
+        System.out.println("sfc");
         Course course = courseDao.findById(courseId);
         Student student = studentDao.findById(studentId);
+        if (course==null || student==null) return false;
         return course.unenrollStudent(student);
     }
 
