@@ -34,6 +34,7 @@ public class ModelToDtoTest {
         expected.setName("Testing");
         expected.setEmail("Testing@testing.com");
         expected.setAddress("Testingstreet");
+
         StudentView studentView = testObject.studentToStudentView(expected);
 
         assertEquals(expected.getEmail(),studentView.getEmail());
@@ -43,6 +44,14 @@ public class ModelToDtoTest {
 
     @Test
     void courseToCourseView() {
+
+        Course expected = new Course(1);
+        Collection<Course> courses = new ArrayList<>();
+        courses.add(expected);
+
+        CourseView courseView = testObject.courseToCourseView(expected);
+
+        assertEquals(expected.getId(),courseView.getId());
 
     }
 

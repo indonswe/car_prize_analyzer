@@ -15,6 +15,8 @@ import se.lexicon.course_manager_assignment.dto.forms.CreateCourseForm;
 import se.lexicon.course_manager_assignment.dto.forms.CreateStudentForm;
 import se.lexicon.course_manager_assignment.dto.views.CourseView;
 import se.lexicon.course_manager_assignment.dto.views.StudentView;
+import se.lexicon.course_manager_assignment.model.Course;
+import se.lexicon.course_manager_assignment.model.Student;
 
 
 import java.time.LocalDate;
@@ -68,14 +70,40 @@ public class CourseManagerTest {
 
     @Test
     void update() {
+
+        CreateCourseForm form = new CreateCourseForm
+                (1,"Testjavaprog", LocalDate.parse("2019-05-17"),1);
+
+        CourseView courseView = testObject.create(form);
+
+
+
     }
 
     @Test
     void searchByCourseName() {
+
+        CreateCourseForm form = new CreateCourseForm
+                (1,"Testjavaprog", LocalDate.parse("2019-05-17"),1);
+
+        CourseView courseView = testObject.create(form);
+        List<CourseView> actual = testObject.searchByCourseName("Testjavaprog");
+
+        assertTrue(actual.contains(courseView));
+
     }
 
     @Test
     void searchByDateBefore() {
+
+        CreateCourseForm form = new CreateCourseForm
+                (1,"Testjavaprog", LocalDate.parse("2019-05-17"),1);
+
+        CourseView courseView = testObject.create(form);
+        List<CourseView> actual = testObject.searchByDateBefore(LocalDate.parse("2019-09-29"));
+
+        assertTrue(actual.contains(courseView));
+
     }
 
     @Test
@@ -93,10 +121,36 @@ public class CourseManagerTest {
 
     @Test
     void addStudentToCourse() {
+
+        /*Course course = new Course(1);
+        Student student = new Student(1);
+        course.enrollStudent(student);
+
+        boolean addStudent = testObject.addStudentToCourse(1,1);
+        //boolean actual = testObject.removeStudentFromCourse(1,1);
+
+        assertTrue(addStudent);*/
+
     }
 
     @Test
     void removeStudentFromCourse() {
+
+        /*CreateCourseForm form = new CreateCourseForm
+                (1,"Testjavaprog", LocalDate.parse("2019-05-17"),1);
+        CreateStudentForm form1 = new CreateStudentForm
+                (1,"Testing", "Testing@testing.com", "Testingstreet");
+
+
+        Course course = new Course(1);
+        Student student = new Student(1);
+        course.enrollStudent(student);
+
+        boolean addStudent = testObject.addStudentToCourse(1,1);
+        boolean actual = testObject.removeStudentFromCourse(1,1);
+
+        assertTrue(actual);*/
+
     }
 
     @Test
@@ -114,13 +168,40 @@ public class CourseManagerTest {
 
     @Test
     void findAll() {
+
+        CreateCourseForm form = new CreateCourseForm
+                (1,"Testjavaprog", LocalDate.parse("2019-05-17"),1);
+
+        CourseView courseView = testObject.create(form);
+        List<CourseView> actual = testObject.findAll();
+
+        assertTrue(actual.contains(courseView));
+
     }
 
     @Test
     void findByStudentId() {
+
+        CreateCourseForm form = new CreateCourseForm
+                (1,"Testjavaprog", LocalDate.parse("2019-05-17"),1);
+
+        CourseView courseView = testObject.create(form);
+        CourseView actual = testObject.findById(1);
+
+        assertEquals(form.getCourseName(),actual.getCourseName());
+
     }
 
     @Test
     void deleteCourse() {
+
+        CreateCourseForm form = new CreateCourseForm
+                (1,"Testjavaprog", LocalDate.parse("2019-05-17"),1);
+
+        CourseView courseView = testObject.create(form);
+        boolean actual = testObject.deleteCourse(1);
+
+        assertTrue(actual);
+
     }
 }
