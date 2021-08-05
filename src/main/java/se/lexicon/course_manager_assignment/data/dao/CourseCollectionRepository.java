@@ -31,6 +31,8 @@ public class CourseCollectionRepository implements CourseDao{
         newCourse.setStartDate(startDate);
         newCourse.setWeekDuration(weekDuration);
         //newCourse.setStudents();
+        System.out.println(newCourse);
+
         courses.add(newCourse);
         return newCourse;
     }

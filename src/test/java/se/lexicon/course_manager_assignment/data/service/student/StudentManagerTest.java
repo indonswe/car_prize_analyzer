@@ -74,6 +74,10 @@ public class StudentManagerTest {
 
         assertEquals(studentView,actual);
 
+        actual = testObject.findById(7);
+
+        assertNotEquals(studentView,actual);
+
     }
 
     @Test
@@ -87,6 +91,10 @@ public class StudentManagerTest {
 
         assertTrue(studentView.equals(actual));
 
+        actual = testObject.searchByEmail("Testing1@testing.com");
+
+        assertFalse(studentView.equals(actual));
+
     }
 
     @Test
@@ -99,6 +107,10 @@ public class StudentManagerTest {
         List<StudentView> actual = testObject.searchByName("Testing");
 
         assertTrue(actual.contains(studentView));
+
+        actual = testObject.searchByName("False");
+
+        assertFalse(actual.contains(studentView));
 
     }
 
