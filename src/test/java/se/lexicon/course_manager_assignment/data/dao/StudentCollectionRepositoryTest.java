@@ -100,6 +100,7 @@ public class StudentCollectionRepositoryTest {
         Collection<Student> actual = testObject.findAll();
 
         assertTrue(actual.contains(expected));
+
     }
 
     @Test

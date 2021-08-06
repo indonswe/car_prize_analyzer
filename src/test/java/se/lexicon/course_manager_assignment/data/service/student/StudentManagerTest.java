@@ -61,6 +61,21 @@ public class StudentManagerTest {
 
     @Test
     void update() {
+
+        int actual = StudentSequencer.getStudentSequencer();
+        int expected = actual + 1;
+
+        CreateStudentForm form = new CreateStudentForm
+                (1,"Testing", "Testing@testing.com", "Testingstreet");
+
+        StudentView student = testObject.create(form);
+
+        actual = StudentSequencer.getStudentSequencer();
+
+        assertEquals(expected,actual);
+        assertEquals(student.getName(),"Testing");
+        assertEquals(student.getEmail(),"Testing@testing.com" );
+        assertEquals(student.getAddress(),"Testingstreet");
     }
 
     @Test
@@ -128,15 +143,13 @@ public class StudentManagerTest {
     }
 
     @Test
-    void deleteStudent() {
+    void testdeleteStudent() {
 
         CreateStudentForm form = new CreateStudentForm
                 (1,"Testing", "Testing@testing.com", "Testingstreet");
 
-        //StudentView studentView = testObject.create(form);
-        //Boolean actual = testObject.deleteStudent(1);
+        StudentView studentView = testObject.create(form);
 
-        //assertTrue(actual);
 
     }
 }

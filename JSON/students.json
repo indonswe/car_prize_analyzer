@@ -3,4 +3,14 @@
   "name" : "Kalle Anka",
   "email" : "kalle@mail.com",
   "address" : "Ankeborgsgatan"
+}, {
+  "id" : 24,
+  "name" : "Kajsa Anka",
+  "email" : "kajsa@anka.com",
+  "address" : "ankeborg"
+}, {
+  "id" : 23,
+  "name" : "Musse Pigg",
+  "email" : "mickey@mail.com",
+  "address" : "Ankeborg"
 } ]
