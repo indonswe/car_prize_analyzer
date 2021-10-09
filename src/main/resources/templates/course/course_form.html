@@ -67,6 +67,21 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="col-sm-6 mb-3">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Price 2021:</span>
+                            </div>
+                            <input class="form-control" type="number" id="price2021" placeholder="Enter price new" th:field="*{price2021}"/>
+                        </div>
+                        <div th:if="${#fields.hasErrors('price2021')}">
+                            <ul class="p-0">
+                                <li th:each="err : ${#fields.errors('price2021')}">
+                                    <span class="form-error" th:text="${err}"></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <div class="btn-group">
                     <button type="submit" class="btn btn-primary">Submit</button>

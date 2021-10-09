@@ -15,6 +15,7 @@ public class Course {
     private LocalDate startDate;
     private int weekDuration;
     private List<Student> students = new ArrayList<>();
+    private int price;
 
     public Course(){
 
@@ -78,6 +79,14 @@ public class Course {
 
     public void setStudents(Collection<Student> students) {
         //this.students = students;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     @Override

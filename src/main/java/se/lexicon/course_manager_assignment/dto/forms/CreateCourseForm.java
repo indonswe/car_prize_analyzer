@@ -27,11 +27,16 @@ public class CreateCourseForm implements Serializable {
     @Min(value = 1, message = ValidationMessages.AT_LEAST_ONE_WEEK)
     private Integer weekDuration;
 
-    public CreateCourseForm(Integer id, String courseName, LocalDate startDate, Integer weekDuration) {
+    @NotNull(message = ValidationMessages.IS_REQUIRED)
+    @Min(value = 1, message = ValidationMessages.AT_LEAST_ONE_CROWN)
+    private Integer price2021;
+
+    public CreateCourseForm(Integer id, String courseName, LocalDate startDate, Integer weekDuration, Integer price2021) {
         this.id = id;
         this.courseName = courseName;
         this.startDate = startDate;
         this.weekDuration = weekDuration;
+        this.price2021 = price2021;
     }
 
     public CreateCourseForm() {

@@ -3,17 +3,20 @@
   "courseName" : "eeeee",
   "startDate" : "2021-07-30",
   "weekDuration" : 1,
-  "students" : [ ]
+  "students" : [ ],
+  "price" : 0
 }, {
   "id" : 9,
   "courseName" : "ggggg",
   "startDate" : "2021-07-31",
   "weekDuration" : 1,
-  "students" : [ ]
+  "students" : [ ],
+  "price" : 0
 }, {
   "id" : 11,
   "courseName" : "eeeee ggggg",
   "startDate" : "2021-07-23",
   "weekDuration" : 1,
-  "students" : [ ]
+  "students" : [ ],
+  "price" : 0
 } ]
