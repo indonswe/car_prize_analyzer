@@ -73,4 +73,12 @@ public class CreateCourseForm implements Serializable {
     public void setWeekDuration(Integer weekDuration) {
         this.weekDuration = weekDuration;
     }
+
+    public Integer getPrice2021() {
+        return price2021;
+    }
+
+    public void setPrice2021(Integer price2021) {
+        this.price2021 = price2021;
+    }
 }

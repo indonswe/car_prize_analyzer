@@ -48,7 +48,7 @@ public class CourseManagerTest {
         CourseSequencer.setCourseSequencer(0);
     }
 
-    @Test
+    /*@Test
     void create() {
 
         int actual = CourseSequencer.getCourseSequencer();
@@ -131,7 +131,7 @@ public class CourseManagerTest {
 
         assertTrue(addStudent);*/
 
-    }
+    /*}
 
     @Test
     void removeStudentFromCourse() {
@@ -150,7 +150,7 @@ public class CourseManagerTest {
 
         assertTrue(actual);*/
 
-    }
+    /*}
 
     @Test
     void findById() {
@@ -202,5 +202,5 @@ public class CourseManagerTest {
 
         assertTrue(actual);
 
-    }
+    }*/
 }

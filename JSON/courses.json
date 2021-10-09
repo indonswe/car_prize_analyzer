@@ -19,4 +19,11 @@
   "weekDuration" : 1,
   "students" : [ ],
   "price" : 0
+}, {
+  "id" : 12,
+  "courseName" : "abcde",
+  "startDate" : "2021-10-23",
+  "weekDuration" : 1,
+  "students" : [ ],
+  "price" : 0
 } ]

@@ -6,4 +6,6 @@ public class ValidationMessages {
     public static final String NOT_A_VALID_EMAIL_ADDRESS = "Email entered is not a valid email address";
     public static final String IN_THE_PRESENT_OR_FUTURE = "Starting date need to be in the present or future";
     public static final String AT_LEAST_ONE_WEEK = "Duration need to be at least one week";
+    public static final String AT_LEAST_ONE_CROWN = "Price needs to be atleast one crown";
+
 }
