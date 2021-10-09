@@ -15,7 +15,7 @@ public class Course {
     private LocalDate startDate;
     private int weekDuration;
     private List<Student> students = new ArrayList<>();
-    private int price;
+    private int price2021;
 
     public Course(){
 
@@ -81,12 +81,12 @@ public class Course {
         //this.students = students;
     }
 
-    public int getPrice() {
-        return price;
+    public int getPrice2021() {
+        return price2021;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setPrice2021(int price2021) {
+        this.price2021 = price2021;
     }
 
     @Override

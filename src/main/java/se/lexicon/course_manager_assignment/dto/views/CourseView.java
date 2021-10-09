@@ -10,13 +10,15 @@ public class CourseView {
     private final String courseName;
     private final LocalDate startDate;
     private final int weekDuration;
+    private final int price2021;
     private List<StudentView> students;
 
-    public CourseView(int id, String courseName, LocalDate startDate, int weekDuration, List<StudentView> students) {
+    public CourseView(int id, String courseName, LocalDate startDate, int weekDuration, int price2021, List<StudentView> students) {
         this.id = id;
         this.courseName = courseName;
         this.startDate = startDate;
         this.weekDuration = weekDuration;
+        this.price2021 = price2021;
         this.students = students;
     }
 
@@ -34,6 +36,10 @@ public class CourseView {
 
     public int getWeekDuration() {
         return weekDuration;
+    }
+
+    public int getPrice2021() {
+        return price2021;
     }
 
     public List<StudentView> getStudents() {

@@ -10,7 +10,7 @@ import java.util.Collection;
 
 public interface CourseDao {
 
-    Course createCourse(String courseName, LocalDate startDate, int weekDuration);
+    Course createCourse(String courseName, LocalDate startDate, int weekDuration, int price2021);
     Course findById(int id);
     Collection<Course> findByNameContains(String name);
     Collection<Course> findByDateBefore(LocalDate end);

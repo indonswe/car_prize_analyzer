@@ -32,7 +32,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(controllers = {StudentController.class, CourseController.class})
 public class StudentControllerTest {
-
+/*
 
     @Autowired
     private MockMvc mockMvc;
@@ -274,5 +274,5 @@ public class StudentControllerTest {
                 .andExpect(status().is3xxRedirection())
                 .andExpect(flash().attributeExists("message"));
 
-    }
+    }*/
 }

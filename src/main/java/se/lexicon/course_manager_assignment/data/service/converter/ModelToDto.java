@@ -34,7 +34,7 @@ public class  ModelToDto implements Converters {
         //students = Collections.singletonList((StudentView) course.getStudents());
         CourseView courseView = new CourseView
                 (course.getId(),course.getCourseName(),
-                        course.getStartDate(),course.getWeekDuration(),students);
+                        course.getStartDate(),course.getWeekDuration(), course.getPrice2021(),students);
         return courseView;
     } 
 
@@ -52,7 +52,7 @@ public class  ModelToDto implements Converters {
             }
             CourseView courseView = new CourseView
                     (course.getId(),course.getCourseName(),
-                            course.getStartDate(),course.getWeekDuration(),students);
+                            course.getStartDate(),course.getWeekDuration(), course.getPrice2021(),students);
             courseViewList.add(courseView);
         }
         return courseViewList;

@@ -44,6 +44,14 @@
                 </div>
             </div>
             <div class="d-md-flex flex-row mb-3">
+                <div class="col-md-2 bg-light shadow-sm" >
+                    <span>Price 2021:</span>
+                </div>
+                <div class="col-md-10 border border-light shadow-sm">
+                    <span th:text="${course.price2021}"></span>
+                </div>
+            </div>
+            <div class="d-md-flex flex-row mb-3">
                 <a class="btn btn-outline-primary mr-3" th:href="@{/courses/{id}/update (id = ${course.id})}">Update</a>
                 <form th:action="@{/courses/{id}/delete (id = ${course.id})}" method="post">
                     <button class="btn btn-outline-danger" type="submit">Delete</button>

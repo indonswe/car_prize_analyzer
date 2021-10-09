@@ -35,7 +35,7 @@ public class CourseManager implements CourseService {
     @Override
     public CourseView create(CreateCourseForm form) {
         Course course = courseDao.createCourse
-                (form.getCourseName(),form.getStartDate(),form.getWeekDuration());
+                (form.getCourseName(),form.getStartDate(),form.getWeekDuration(),form.getPrice2021());
         CourseView courseView = converters.courseToCourseView(course);
         return courseView;
     }

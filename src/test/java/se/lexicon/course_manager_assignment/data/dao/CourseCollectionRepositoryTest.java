@@ -37,7 +37,7 @@ public class CourseCollectionRepositoryTest {
         CourseSequencer.setCourseSequencer(0);
     }
 
-    @Test
+    /*@Test
     void createCourse() {
         int actual = CourseSequencer.getCourseSequencer();
         int expected = actual + 1;
@@ -149,5 +149,5 @@ public class CourseCollectionRepositoryTest {
 
 
         assertFalse(actual.contains(expected));
-    }
+    }*/
 }

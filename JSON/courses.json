@@ -1,29 +1,8 @@
 [ {
-  "id" : 8,
-  "courseName" : "eeeee",
-  "startDate" : "2021-07-30",
-  "weekDuration" : 1,
-  "students" : [ ],
-  "price" : 0
-}, {
-  "id" : 9,
-  "courseName" : "ggggg",
-  "startDate" : "2021-07-31",
-  "weekDuration" : 1,
-  "students" : [ ],
-  "price" : 0
-}, {
-  "id" : 11,
-  "courseName" : "eeeee ggggg",
-  "startDate" : "2021-07-23",
-  "weekDuration" : 1,
-  "students" : [ ],
-  "price" : 0
-}, {
-  "id" : 12,
+  "id" : 14,
   "courseName" : "abcde",
-  "startDate" : "2021-10-23",
+  "startDate" : "2021-10-18",
   "weekDuration" : 1,
   "students" : [ ],
-  "price" : 0
+  "price2021" : 1
 } ]
